@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Legacy | Avora greens</title>
+    <meta name="description" content="Discover the history, mission, and dedicated culinary team behind Avora greens. Learn about our commitment to luxury hospitality, custom weddings, and catering services.">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Specific page styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .stat-card {
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gold-border);
+            background: rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+        
+        .stat-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--gold-primary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-card {
+            text-align: center;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+        }
+        
+        .team-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border: 1px solid var(--gold-border);
+            aspect-ratio: 4/5;
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+        }
+        
+        .team-role {
+            font-size: 0.8rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .team-name {
+            font-size: 1.3rem;
+            font-family: var(--font-heading);
+        }
+
+        @media (max-width: 992px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Luxury Preloader -->
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-brand">AVORA<span>GREENS</span></div>
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AVORA<span>GREENS </span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="about.html" class="active" id="nav-about">About</a></li>
+                <li><a href="services.html" id="nav-services">Services</a></li>
+                <li><a href="gallery.html" id="nav-gallery">Gallery</a></li>
+                <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                <li><a href="booking.html" class="nav-cta" id="nav-booking">Book Event</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="hero-bg-wrapper" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="page-banner-content">
+            <h1 class="page-banner-title split-reveal">Our Legacy</h1>
+            <div class="page-banner-breadcrumbs reveal-slide-up" style="--delay: 0.5s;">
+                <a href="index.html">Home</a> &nbsp;/&nbsp; About Us
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Story & Philosophy -->
+    <section class="section-padding container">
+        <div class="about-intro-wrapper">
+            <div class="about-intro-text reveal-slide-left">
+                <span class="section-subtitle">Established 2005</span>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 24px;">Excellence in Every Culinary Craft</h2>
+                <p>Avora greens was founded upon a singular vision: to create a luxury sanctuary where impeccable service meets world-class gastronomy. Over two decades, we have evolved from a boutique estate venue in Mayfair into a recognized symbol of high-end event catering across the country.</p>
+                <p>We believe that hospitality is an art form. Every detail, from the polish of the silver champagne flutes to the precise presentation of a pan-seared sea bass, is designed to generate a feeling of refined luxury.</p>
+            </div>
+            
+            <div class="about-intro-text reveal-slide-right" style="--delay: 0.15s;">
+                <div style="border-left: 2px solid var(--gold-primary); padding-left: 30px; margin-bottom: 30px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;" class="gold-text">Our Mission</h3>
+                    <p style="font-size: 0.95rem;">To design custom events and gourmet menus that elevate ordinary celebrations into grand legendary memories through sophisticated styling and Michelin-level kitchen operations.</p>
+                </div>
+                <div style="border-left: 2px solid var(--gold-primary); padding-left: 30px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 10px;" class="gold-text">Our Vision</h3>
+                    <p style="font-size: 0.95rem;">To remain the premier benchmark of elite event catering and hotel hosting, inspiring our patrons with seasonal dining innovations and unparalleled spatial designs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid reveal-scale" style="--delay: 0.3s;">
+            <div class="stat-card glass-panel">
+                <div class="stat-num">20+</div>
+                <div class="stat-label">Years of Luxury</div>
+            </div>
+            <div class="stat-card glass-panel">
+                <div class="stat-num">1.5k+</div>
+                <div class="stat-label">Events Hosted</div>
+            </div>
+            <div class="stat-card glass-panel">
+                <div class="stat-num">12</div>
+                <div class="stat-label">Michelin Star Chefs</div>
+            </div>
+            <div class="stat-card glass-panel">
+                <div class="stat-num">99%</div>
+                <div class="stat-label">Client Approval</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title-wrapper reveal-slide-up">
+                <span class="section-subtitle">The Visionaries</span>
+                <h2 class="section-title">Our Master Hospitality Guild</h2>
+            </div>
+            
+            <div class="team-grid">
+                <!-- Team 1 -->
+                <div class="team-card reveal-slide-up" style="--delay: 0s;">
+                    <div class="team-img-wrapper">
+                        <img class="team-img" src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Executive Chef Chef Jean-Luc Laurent">
+                    </div>
+                    <div class="team-role">Executive Culinary Chef</div>
+                    <h3 class="team-name">Chef Jean-Luc Laurent</h3>
+                </div>
+                
+                <!-- Team 2 -->
+                <div class="team-card reveal-slide-up" style="--delay: 0.15s;">
+                    <div class="team-img-wrapper">
+                        <img class="team-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Wedding Director Lady Cynthia Howard">
+                    </div>
+                    <div class="team-role">Director of Weddings</div>
+                    <h3 class="team-name">Lady Cynthia Howard</h3>
+                </div>
+                
+                <!-- Team 3 -->
+                <div class="team-card reveal-slide-up" style="--delay: 0.3s;">
+                    <div class="team-img-wrapper">
+                        <img class="team-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Event Specialist Evelyn Ashford">
+                    </div>
+                    <div class="team-role">Head Corporate Coordinator</div>
+                    <h3 class="team-name">Evelyn Ashford</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer>
+        <div class="container footer-columns">
+            <div class="footer-col">
+                <a href="index.html" class="logo"
+                    style="margin-bottom: 20px; display: inline-block;">AVORA<span>GREENS</span></a>
+                    
+                <div class="footer-socials">
+                    <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">LI</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Sitemap</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Legacy</a></li>
+                    <li><a href="services.html">Catering & Packages</a></li>
+                    <li><a href="gallery.html">Visual Gallery</a></li>
+                    <li><a href="contact.html">Connect</a></li>
+                </ul>
+            </div>
+
+<div class="footer-col">
+    <h4>Contact Info</h4>
+    <ul class="footer-links" style="color: var(--text-secondary); font-size: 0.9rem;">
+        <li>Uruwala, Nadungamuwa,</li>
+        <li>Weliweriya 11720</li>
+        <li>Phone: <a href="tel:+94740034352">074 003 4352</a></li>
+        <li>
+            Email:
+            <a href="mailto:avoragreens@gmail.com">
+                avoragreens@gmail.com
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="footer-col">
+    <h4>Our Location</h4>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.7039365314868!2d80.0419168!3d7.0440366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2ff0055140fbf%3A0xbb578cb10213d013!2sAvora%20greens%20hotel%20%26%20Upali%20Catering%20service!5e0!3m2!1sen!2slk!4v1781273072484!5m2!1sen!2slk"
+        width="100%"
+        height="220"
+        style="border:0; border-radius:12px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+</div>
+            
+        </div>
+
+<div class="footer-bottom">
+    <p>
+        &copy; 2026 Avora Greens. All rights reserved.
+        Designed & Developed by
+        <a href="https://dilina-thisun.github.io/DT_Solution/" target="_blank">
+            DT.SOLUTION
+        </a>
+    </p>
+</div>
+
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="https://wa.me/442079460192" target="_blank" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">
+            <svg style="width: 24px; height: 24px; fill: currentColor; display: block; margin: auto;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.981 14.119.957 11.99.957c-5.43 0-9.854 4.37-9.858 9.802 0 1.71.464 3.382 1.343 4.881l-.994 3.63 3.73-.966zM17.487 14.2c-.3-.15-1.77-.874-2.046-.975-.276-.101-.476-.15-.676.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.282-1.144-1.815-2.03-2.065-2.43-.25-.4-.027-.615.123-.764.135-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.676-1.628-.926-2.228-.244-.587-.492-.507-.676-.516-.174-.008-.375-.01-.575-.01-.2 0-.525.075-.8.375-.276.3-1.05 1.025-1.05 2.5 0 1.475 1.075 2.9 1.225 3.1.15.2 2.11 3.22 5.11 4.52.714.31 1.27.494 1.703.63.714.227 1.365.195 1.88.118.573-.085 1.77-.724 2.02-1.417.25-.693.25-1.29.175-1.417-.075-.125-.275-.2-.575-.35z"/></svg>
+        </a>
+        <a href="booking.html" class="float-btn float-book" aria-label="Book Event Now">
+            <svg style="width: 24px; height: 24px; fill: currentColor; display: block; margin: auto;" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Welcome to The Gazette! You have successfully subscribed to Aura Estates newsletter.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

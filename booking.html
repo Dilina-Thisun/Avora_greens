@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Luxury Event | Avora greens</title>
+    <meta name="description" content="Design your elite gathering. Fill out our custom event booking questionnaire and let our Michelin culinary team and interior stylists draft a bespoke package.">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Luxury Preloader -->
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-brand">AVORA<span>GREENS</span></div>
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AURA<span>ESTATES</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="about.html" id="nav-about">About</a></li>
+                <li><a href="services.html" id="nav-services">Services</a></li>
+                <li><a href="gallery.html" id="nav-gallery">Gallery</a></li>
+                <li><a href="contact.html" id="nav-contact">Contact</a></li>
+                <li><a href="booking.html" class="active" id="nav-booking">Book Event</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="hero-bg-wrapper" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="hero-overlay"></div>
+        <div class="page-banner-content">
+            <h1 class="page-banner-title split-reveal">Book An Event</h1>
+            <div class="page-banner-breadcrumbs reveal-slide-up" style="--delay: 0.5s;">
+                <a href="index.html">Home</a> &nbsp;/&nbsp; Event Registration
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="section-padding container">
+        <div class="section-title-wrapper scroll-reveal">
+            <span class="section-subtitle">Registrar</span>
+            <h2 class="section-title">Design Your Celebration</h2>
+        </div>
+
+        <div class="booking-layout">
+            <!-- Left Side: Form -->
+            <div class="form-wrapper glass-panel scroll-reveal">
+                <form id="bookingForm" novalidate>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="b_name">Host / Client Name *</label>
+                            <input type="text" id="b_name" class="form-control" placeholder="e.g. Lord Harrington" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="b_phone">Phone Number *</label>
+                            <input type="tel" id="b_phone" class="form-control" placeholder="e.g. +44 7946 0192" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="b_email">Email Address *</label>
+                        <input type="email" id="b_email" class="form-control" placeholder="e.g. client@domain.com" required>
+                    </div>
+
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="b_event">Event Configuration *</label>
+                            <select id="b_event" class="form-control" required>
+                                <option value="" disabled selected>Choose a category</option>
+                                <option value="wedding">Imperial Wedding ($120/guest)</option>
+                                <option value="catering">Gourmet Catering ($65/guest)</option>
+                                <option value="corporate">Corporate Gala ($85/guest)</option>
+                                <option value="party">Private Party ($75/guest)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="b_date">Event Date *</label>
+                            <input type="date" id="b_date" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="b_guests">Estimated Guest Count *</label>
+                        <input type="number" id="b_guests" class="form-control" min="10" max="2000" placeholder="Minimum 10 guests" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="b_message">Bespoke Design Requests</label>
+                        <textarea id="b_message" class="form-control" placeholder="Tell us about your culinary choices, decoration color palettes, dietary guidelines, or floral requests..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Send Inquiry Proposal</button>
+                </form>
+            </div>
+
+            <!-- Right Side: Live Summary -->
+            <div id="bookingSummary" class="booking-summary-panel glass-panel scroll-reveal" style="transition-delay: 0.1s;">
+                <h3 class="summary-title gold-text">Event Estimate</h3>
+                
+                <div class="summary-item">
+                    <span class="summary-label">Host Name:</span>
+                    <span id="s_name" class="summary-val">Not specified</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span class="summary-label">Occasion:</span>
+                    <span id="s_event" class="summary-val">Select Event</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span class="summary-label">Target Date:</span>
+                    <span id="s_date" class="summary-val">Select Date</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span class="summary-label">Attendance:</span>
+                    <span id="s_guests" class="summary-val">Not specified</span>
+                </div>
+                
+                <div class="summary-item" style="border-top: 1px solid var(--gold-border); padding-top: 20px; margin-top: 20px;">
+                    <span class="summary-label" style="font-weight: 600; color: var(--text-primary);">Estimated Base Rate:</span>
+                    <span id="s_price" class="summary-val gold-text" style="font-size: 1.5rem; font-family: var(--font-heading);">$0</span>
+                </div>
+
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 25px; line-height: 1.4;">
+                    * The calculated price is a base estimate for kitchen and server staff. Custom floral styling, menu upgrades, and venue bookings will be finalized during your hospitality interview.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer>
+        <div class="container footer-columns">
+            <div class="footer-col">
+                <a href="index.html" class="logo"
+                    style="margin-bottom: 20px; display: inline-block;">AVORA<span>GREENS</span></a>
+                    
+                <div class="footer-socials">
+                    <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">LI</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Sitemap</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our Legacy</a></li>
+                    <li><a href="services.html">Catering & Packages</a></li>
+                    <li><a href="gallery.html">Visual Gallery</a></li>
+                    <li><a href="contact.html">Connect</a></li>
+                </ul>
+            </div>
+
+<div class="footer-col">
+    <h4>Contact Info</h4>
+    <ul class="footer-links" style="color: var(--text-secondary); font-size: 0.9rem;">
+        <li>Uruwala, Nadungamuwa,</li>
+        <li>Weliweriya 11720</li>
+        <li>Phone: <a href="tel:+94740034352">074 003 4352</a></li>
+        <li>
+            Email:
+            <a href="mailto:avoragreens@gmail.com">
+                avoragreens@gmail.com
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="footer-col">
+    <h4>Our Location</h4>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.7039365314868!2d80.0419168!3d7.0440366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2ff0055140fbf%3A0xbb578cb10213d013!2sAvora%20greens%20hotel%20%26%20Upali%20Catering%20service!5e0!3m2!1sen!2slk!4v1781273072484!5m2!1sen!2slk"
+        width="100%"
+        height="220"
+        style="border:0; border-radius:12px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+</div>
+            
+        </div>
+
+<div class="footer-bottom">
+    <p>
+        &copy; 2026 Avora Greens. All rights reserved.
+        Designed & Developed by
+        <a href="https://dilina-thisun.github.io/DT_Solution/" target="_blank">
+            DT.SOLUTION
+        </a>
+    </p>
+</div>
+
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="https://wa.me/442079460192" target="_blank" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">
+            <svg style="width: 24px; height: 24px; fill: currentColor; display: block; margin: auto;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 1.981 14.119.957 11.99.957c-5.43 0-9.854 4.37-9.858 9.802 0 1.71.464 3.382 1.343 4.881l-.994 3.63 3.73-.966zM17.487 14.2c-.3-.15-1.77-.874-2.046-.975-.276-.101-.476-.15-.676.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-.3-.15-1.267-.467-2.413-1.49-1.282-1.144-1.815-2.03-2.065-2.43-.25-.4-.027-.615.123-.764.135-.134.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.676-1.628-.926-2.228-.244-.587-.492-.507-.676-.516-.174-.008-.375-.01-.575-.01-.2 0-.525.075-.8.375-.276.3-1.05 1.025-1.05 2.5 0 1.475 1.075 2.9 1.225 3.1.15.2 2.11 3.22 5.11 4.52.714.31 1.27.494 1.703.63.714.227 1.365.195 1.88.118.573-.085 1.77-.724 2.02-1.417.25-.693.25-1.29.175-1.417-.075-.125-.275-.2-.575-.35z"/></svg>
+        </a>
+        <a href="booking.html" class="float-btn float-book" aria-label="Book Event Now">
+            <svg style="width: 24px; height: 24px; fill: currentColor; display: block; margin: auto;" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Welcome to The Gazette! You have successfully subscribed to Aura Estates newsletter.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

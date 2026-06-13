@@ -893,7 +893,7 @@ label {
 
 .form-control {
     width: 100%;
-    background: rgba(255, 255, 255, 0.03);
+    background: #ffffff08;
     border: 1px solid var(--gold-border);
     color: var(--text-primary);
     padding: 14px 18px;
@@ -907,13 +907,24 @@ label {
     outline: none;
     border-color: var(--gold-primary);
     background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 10px rgba(197, 168, 128, 0.1);
+    box-shadow: 0 0 10px rgba(197, 118, 7, 0.692);
 }
 
 textarea.form-control {
     resize: none;
     min-height: 120px;
 }
+
+#b_event {
+    background: #fff;
+    color: #222;
+}
+
+#b_event option {
+    background: #ffffff08;
+    color: #222;
+}
+
 
 /* Live receipt preview on booking page */
 .booking-summary-panel {
@@ -1583,3 +1594,98 @@ footer {
         line-height: 1.6;
     }
 }
+
+
+/* ===== Estimate Modal ===== */
+
+.estimate-modal{
+    display:none;
+    position:fixed;
+    z-index:99999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(6px);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.estimate-modal-content{
+    background:#ffffff23;
+    max-width:500px;
+    width:100%;
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    position:relative;
+    animation:popupFade .4s ease;
+}
+
+@keyframes popupFade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.success-icon{
+    width:80px;
+    height:80px;
+    margin:auto;
+    border-radius:50%;
+    background:#28a745;
+    color:white;
+    font-size:40px;
+    line-height:80px;
+    margin-bottom:20px;
+}
+
+.estimate-modal-content h2{
+    margin-bottom:15px;
+}
+
+.estimate-modal-content p{
+    color:#0fe24e;
+    line-height:1.7;
+}
+
+.modal-buttons{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.whatsapp-btn,
+.email-btn{
+    padding:12px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+}
+
+.whatsapp-btn{
+    background:#25D366;
+}
+
+.email-btn{
+    background:#007bff;
+}
+
+.close-modal{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:30px;
+    cursor:pointer;
+}
+

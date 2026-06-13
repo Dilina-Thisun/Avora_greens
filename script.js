@@ -399,18 +399,18 @@ function initBookingForm() {
             let costPerGuest = 0;
 
             switch (eventType) {
-                case 'wedding': costPerGuest = 120; break;
-                case 'catering': costPerGuest = 65; break;
-                case 'corporate': costPerGuest = 85; break;
-                case 'party': costPerGuest = 75; break;
+                case 'wedding': costPerGuest = 1000; break;
+                case 'catering': costPerGuest = 800; break;
+                case 'corporate': costPerGuest = 500; break;
+                case 'party': costPerGuest = 650; break;
                 default: costPerGuest = 0;
             }
 
             if (costPerGuest > 0 && guestCount > 0) {
                 const total = costPerGuest * guestCount;
-                sPrice.textContent = `$${total.toLocaleString()}`;
+                sPrice.textContent = `Rs ${total.toLocaleString()}`;
             } else {
-                sPrice.textContent = '$0';
+                sPrice.textContent = 'Rs0';
             }
         }
     }
@@ -526,3 +526,4 @@ function showSuccessModal(title, desc) {
         modalOverlay.classList.add('active');
     }, 100);
 }
+

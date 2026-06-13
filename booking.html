@@ -80,10 +80,10 @@
                             <label for="b_event">Event Configuration *</label>
                             <select id="b_event" class="form-control" required>
                                 <option value="" disabled selected>Choose a category</option>
-                                <option value="wedding">Imperial Wedding ($120/guest)</option>
-                                <option value="catering">Gourmet Catering ($65/guest)</option>
-                                <option value="corporate">Corporate Gala ($85/guest)</option>
-                                <option value="party">Private Party ($75/guest)</option>
+                                <option value="wedding">Imperial Wedding (Rs1000/guest)</option>
+                                <option value="catering">Gourmet Catering (Rs800/guest)</option>
+                                <option value="corporate">Corporate Gala (Rs500/guest)</option>
+                                <option value="party">Private Party (Rs650/guest)</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -102,7 +102,11 @@
                         <textarea id="b_message" class="form-control" placeholder="Tell us about your culinary choices, decoration color palettes, dietary guidelines, or floral requests..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Send Inquiry Proposal</button>
+                        <button type="button" id="downloadPdfBtn" class="btn btn-primary"
+                        style="width:100%;margin-top:15px;">
+                            Download Event Estimate PDF
+                        </button>
+
                 </form>
             </div>
 
@@ -132,7 +136,7 @@
                 
                 <div class="summary-item" style="border-top: 1px solid var(--gold-border); padding-top: 20px; margin-top: 20px;">
                     <span class="summary-label" style="font-weight: 600; color: var(--text-primary);">Estimated Base Rate:</span>
-                    <span id="s_price" class="summary-val gold-text" style="font-size: 1.5rem; font-family: var(--font-heading);">$0</span>
+                    <span id="s_price" class="summary-val gold-text" style="font-size: 1.5rem; font-family: var(--font-heading);">Rs0</span>
                 </div>
 
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 25px; line-height: 1.4;">
@@ -140,6 +144,29 @@
                 </p>
             </div>
         </div>
+
+                <div id="contactOptions" style="display:none; text-align:center; margin-top:30px;">
+
+                    <h3>Send Your Event Estimate</h3>
+
+                    <p>
+                        Please send the downloaded PDF to our team for confirmation.
+                    </p>
+
+                    <a href="https://wa.me/94740034352"
+                    class="btn btn-success"
+                    target="_blank"
+                    style="margin-right:10px;">
+                    Send via WhatsApp
+                    </a>
+
+                    <a href="mailto:avoragreens@gmail.com?subject=Event Estimate"
+                    class="btn btn-primary">
+                    Send via Email
+                    </a>
+
+                </div>
+
     </section>
 
     <!-- Luxury Footer -->
@@ -220,13 +247,194 @@
         </a>
     </div>
 
+
+            <!-- Success Modal -->
+        <div id="estimateModal" class="estimate-modal">
+            <div class="estimate-modal-content">
+
+                <span id="closeModal" class="close-modal">&times;</span>
+
+                <div class="success-icon">✓</div>
+
+                <h2>Event Estimate Downloaded</h2>
+
+                <p>
+                    Your Event Estimate PDF has been generated successfully.
+                    Please send it to our team for confirmation and a customized quotation.
+                </p>
+
+                <div class="modal-buttons">
+
+                    <a href="https://wa.me/94740034352"
+                    target="_blank"
+                    class="whatsapp-btn">
+                        WhatsApp Us
+                    </a>
+
+                    <a href="mailto:avoragreens@gmail.com?subject=Event Estimate"
+                    class="email-btn">
+                        Email Us
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
     <script src="script.js"></script>
-    <script>
-        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Welcome to The Gazette! You have successfully subscribed to Aura Estates newsletter.');
-            e.target.reset();
+
+        <script>
+        document.getElementById("downloadPdfBtn").addEventListener("click", function () {
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Form Data
+            const name = document.getElementById("b_name").value;
+            const phone = document.getElementById("b_phone").value;
+            const email = document.getElementById("b_email").value;
+
+            const eventType =
+                document.getElementById("b_event").options[
+                    document.getElementById("b_event").selectedIndex
+                ].text;
+
+            const date = document.getElementById("b_date").value;
+            const guests = document.getElementById("b_guests").value;
+            const estimate = document.getElementById("s_price").innerText;
+            const message = document.getElementById("b_message").value || "None";
+
+            // ================= HEADER =================
+
+            doc.setFillColor(22, 44, 33);
+            doc.rect(0, 0, 210, 35, "F");
+
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(22);
+            doc.text("AVORA GREENS", 105, 15, { align: "center" });
+
+            doc.setFontSize(10);
+            doc.text("Hotel & Upali Catering Service", 105, 23, { align: "center" });
+            doc.text("Uruwala, Nadungamuwa, Weliweriya", 105, 29, { align: "center" });
+
+            // Reset text color
+            doc.setTextColor(0, 0, 0);
+
+            // ================= TITLE =================
+
+            doc.setFontSize(16);
+            doc.text("EVENT ESTIMATE REPORT", 105, 48, { align: "center" });
+
+            // ================= CLIENT TABLE =================
+
+            doc.autoTable({
+                startY: 60,
+                head: [['Client Information', 'Details']],
+                body: [
+                    ['Client Name', name],
+                    ['Phone Number', phone],
+                    ['Email Address', email]
+                ],
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [22, 44, 33]
+                }
+            });
+
+            // ================= EVENT TABLE =================
+
+            doc.autoTable({
+                startY: doc.lastAutoTable.finalY + 10,
+                head: [['Event Details', 'Value']],
+                body: [
+                    ['Event Type', eventType],
+                    ['Event Date', date],
+                    ['Guest Count', guests],
+                    ['Estimated Cost', estimate]
+                ],
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [22, 44, 33]
+                }
+            });
+
+            // ================= SPECIAL REQUESTS =================
+
+            let yPos = doc.lastAutoTable.finalY + 15;
+
+            doc.setFontSize(12);
+            doc.text("Special Requests", 14, yPos);
+
+            doc.rect(14, yPos + 5, 180, 35);
+
+            const wrappedText = doc.splitTextToSize(message, 170);
+            doc.text(wrappedText, 18, yPos + 15);
+
+            // ================= FOOTER =================
+
+            doc.setFontSize(10);
+
+            doc.text(
+                "Thank you for choosing AVORA GREENS",
+                105,
+                270,
+                { align: "center" }
+            );
+
+            doc.text(
+                "Phone: 074 003 4352 | Email: avoragreens@gmail.com",
+                105,
+                277,
+                { align: "center" }
+            );
+
+            // ================= SAVE PDF =================
+
+            doc.save("AvoraGreens_EventEstimate.pdf");
+
+            // Show Success Modal
+            document.getElementById("estimateModal").style.display = "flex";
+
         });
-    </script>
+        </script>
+
+
+        <script>
+        const modal = document.getElementById("estimateModal");
+
+        document.getElementById("closeModal").onclick = () => {
+            modal.style.display = "none";
+        };
+
+        window.onclick = (e) => {
+            if(e.target === modal){
+                modal.style.display = "none";
+            }
+        };
+        
+        </script>
+
+        <script>
+        document.getElementById("closeEstimateBtn").addEventListener("click", () => {
+            document.getElementById("estimateModal").style.display = "none";
+        });
+
+        document.getElementById("closeModal").addEventListener("click", () => {
+            document.getElementById("estimateModal").style.display = "none";
+        });
+        </script>
+
+        
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
 </body>
 </html>
